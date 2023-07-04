@@ -1,0 +1,42 @@
+{% extends 'layout/main.html' %}
+
+{% block content %}
+
+    <h1 class="text-center"> Search Results : </h1>
+
+
+<head>
+    {% load static %}
+    <link href="{% static 'css/fonts.css' %}" rel="stylesheet">
+     <script src="https://kit.fontawesome.com/31806dac98.js" crossorigin="anonymous"></script>
+</head>
+
+    <div class="container">
+        <h3 class="text-center"> Search Results :</h3>
+        {% for item in product %}
+
+<div class="container m-3">
+           <div class="row m-5">
+
+
+                    <div class="card m-4 p-2" style="width: 50rem; height: 35rem; box-shadow: 4px 4px #c291fa; border-radius: 20px 15px;">
+                        <img src="{{item.Home_image1.url}}" style="height: 300px; width: 300px;"  class="card-img-top" alt="...">
+                        <div class="card-body-3">
+
+                            <h4 style="font-size: 17px;" class="card-title mt-1">{{item.house}}</h4>
+                            <h3 style="color: rgb(16, 52, 107)" class="card-subtitle mt-3">{{item.name}}</h3>
+                            <hr>
+                            <p style="font-size: 13px;" class="cart-text mt-1"><b>{{item.pin_code}}</b></p>
+                            <p style="font-size: 13px;" class="btn btn-warning">{{item.safety}}</p>
+                        </div>
+                        <span><a href="{% url 'products' item.name %}" style="background-color: #5707b3;" class="btn btn-primary m-1">Detail</a></span>
+                    </div>
+                </div>
+
+</div>
+         </div>
+    {% endfor %}
+
+{% endblock content %}
+
+

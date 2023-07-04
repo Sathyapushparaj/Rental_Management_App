@@ -1,0 +1,43 @@
+body{
+
+    font-family: sans-serif;
+    background: orange;
+    }
+
+ .container{
+    display: flex;
+ }
+ h1{
+    text-align: center;
+    color:red;
+    top:20px;
+    margin: 10px 0 50px;
+}
+
+h3{
+    color:green;
+}
+.bathyal{
+    color: red;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    margin-top: 20px;
+ }
+.card{
+background: lightgreen;
+height: 40px
+
+}
+
+}
+
+.gallery{
+    margin: 10px 60px;
+}
+.gallery img{
+    width: 150px;
+    padding: 5px;
+
+}
+

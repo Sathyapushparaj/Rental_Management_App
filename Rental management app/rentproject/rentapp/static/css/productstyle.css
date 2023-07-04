@@ -1,0 +1,21 @@
+body{
+    font-family: sans-serif;
+    background: lightblue;
+    color: red;
+}
+
+
+.gallery{
+    margin: 10px 60px;
+}
+.gallery img{
+    width: 200px;
+    padding: 5px;
+
+.category{
+    margin:top
+    color: red;
+    display: flex;
+    align-items:right;
+    justify-content:center;
+    margin-top: 20px;

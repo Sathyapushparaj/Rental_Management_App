@@ -1,0 +1,37 @@
+{% extends 'layout/main.html' %}
+{% block content %}
+
+<head>
+     {% load static %}
+    <link href="{% static 'css/register.css' %}" rel="stylesheet">
+</head>
+    <div class="continer" style="margin-top:70px">
+        <div class="row">
+            <div class="col-8">
+                    <h1 class="mb-4">User Login</h1>
+                {% include 'inc/message.html' %}
+            </div>
+        </div>
+    </div>
+<section class="py-12 my-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <form method="post" action="">
+                {% csrf_token %}
+                    <div class="mb-5">
+                                <lable for="" class="form-label">User Name</lable>
+                                <input type="text"  name="username" id="usename" class="form-control" placeholder="Enter User Name">
+                                </div>
+                                <div class="mb-5">
+                                     <lable for="" class="form-label">Password</lable>
+                                    <input type="password"  name="password" id="password" class="form-control" placeholder="Enter Password">
+                                </div>
+                     <button type="Sumbit" class="btn btn-primary">Login</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

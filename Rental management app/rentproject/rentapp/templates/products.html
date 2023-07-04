@@ -1,0 +1,247 @@
+
+
+
+{% block content %}
+
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  {% load static %}
+    <link href="{% static 'css/productstyle.css' %}" rel="stylesheet">
+     <script src="https://kit.fontawesome.com/31806dac98.js" crossorigin="anonymous"></script>
+
+</head>
+<style>
+
+
+body {
+  font-family: Arial;
+  margin:1%;
+  bottom:0;
+  right:0;
+  background: pink;
+
+
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: center;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: flex;
+
+}
+
+
+
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 6px 0 0 3px;
+}
+
+
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: Red;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.row:after {
+  content: "";
+  display: fit;
+  clear: both;
+
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 18.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+</style>
+<style>
+    div.c{
+ position: absolute;
+  right: 800;
+  width: 250px;
+  height: 350px;
+
+
+
+}
+    </style>
+<body>
+
+<h1 class="card-title text-primary">{{eachproduct.name}}</h1>
+
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 4</div>
+    <a  href="{{eachproduct.Home_image1.url}}" > <img src="{{eachproduct.Home_image1.url}}" alt="" class="d-block w-100"></a>
+
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 4</div>
+   <a href="{{eachproduct.Home_image2.url}}"><img src="{{eachproduct.Home_image2.url}}" class="d-block w-100"></a>
+
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 4</div>
+    <a href="{{eachproduct.Home_image3.url}}"><img src="{{eachproduct.Home_image3.url}}" class="d-block w-100"></a>
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 4</div>
+     <a href="{{eachproduct.Home_image4.url}}"><img src="{{eachproduct.Home_image4.url}}" class="d-block w-100"></a>
+
+  </div>
+
+
+
+
+
+
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="{{eachproduct.Home_image1.url}}" style="width:60%" onclick="currentSlide(1)" alt="Home images">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="{{eachproduct.Home_image2.url}}" style="width:60%" onclick="currentSlide(2)" alt="Home images">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="{{eachproduct.Home_image3.url}}" style="width:60%" onclick="currentSlide(3)" alt="Home images">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="{{eachproduct.Home_image4.url}}" style="width:60%" onclick="currentSlide(4)" alt="Home images">
+    </div>
+  </div>
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("demo");
+  let captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+
+
+                             <div class="card mb-8" style="max-width: 300px;">
+                                <div class="row g-0">
+                            <div class="col-md-4">
+
+                            <div class="col-md-2">
+                            <div class="card-body">
+
+
+
+                            <h4 style="font-size:25px;" class="text">{{eachproduct.house}}</h4>
+
+                            <h4 style="font-size:25px;" class="text"> Address : {{eachproduct.address}}</h4><br>
+
+                                <div class="c">
+
+                                <div class="mapouter" >
+
+                                    <div class="gmap_canvas">
+
+
+                                        <iframe width="650" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q={{eachproduct.address}}&t=&z=10&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+
+                                        <style>.map-outer{position:relative;text-align:right;height:510px;width:770px;}</style>
+
+
+                                        <style>.gmap_canvas {overflow:hidden;background:none!important;height:510px;width:770px;}</style>
+                                        <hr>
+                                        <br>
+
+                                        <a href="//en.wikipedia.org/wiki/Crime_in_India?" style="font-size:40;" class="btn btn-warning">Search Our Area Crime And Facilities</a>
+
+
+                                          </div></div></div></div>
+
+
+                            <h4 style="font-size:25px;" class="text">Pincode : {{eachproduct.pin_code}}<br><br>
+
+                            <h4 style="font-size:25px;" class="text"> Safety : {{eachproduct.safety}}</p><br>
+
+
+
+                            <p class="integer">Rs : {{eachproduct.amount}}</p><br><br>
+
+                            <span class="float-end"> Created_at : {{eachproduct.created_at}}</span><br><br>
+
+
+
+                            <a href="{% url 'dialpad' %}" class="btn btn-primary btn-sm">Contact Us</a>
+
+                            </div>
+
+                        </div>
+            </div>
+
+</body>
+</html>
+
+
+
+
+{% endblock content %}
+
